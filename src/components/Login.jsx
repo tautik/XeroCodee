@@ -1,4 +1,5 @@
 import GuyWithBook from "../assets/images/guywithbook.svg";
+import { useEffect, useState } from "react";
 
 const WelcomeText = () => {
   return (
@@ -36,21 +37,65 @@ const OrDivider = () => {
 };
 
 const LoginForm = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const sendData = async (data) => {
+    const requestOptions = {
+      method: "POST",
+      "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
+      body: new URLSearchParams({
+        email: data.email,
+        password: data.password,
+      }),
+    };
+    const response = await fetch(
+      "http://localhost:3009/api/v1/signin",
+      requestOptions
+    );
+    return response;
+  };
+
+  const submitForm = async (e) => {
+    e.preventDefault();
+    const data = { email: email, password: password };
+    setEmail("");
+    setPassword("");
+    const response = await sendData(data);
+    console.log(response);
+  };
+
   return (
-    <div className="flex flex-col w-full">
-      <input
-        className="w-[80%] m-auto border-b"
-        type="text"
-        placeholder="Email Address"
-      />
-      <input
-        className="w-[80%] m-auto border-b my-5"
-        type="text"
-        placeholder="Password"
-      />
-      <button className="mt-2 bg-primary1 text-white font-bold text-xl px-1 w-[80%] m-auto py-2 border border-blue-200  rounded-lg">
-        <h1>Log In</h1>
-      </button>
+    <div className="flex flex-col w-full ">
+      <form className=" w-full" action="" onSubmit={submitForm} method="post ">
+        {/* <input
+            className="w-[80%] block m-auto border-b"
+            type="text"
+            placeholder="Name"
+          /> */}
+        <input
+          className="w-[80%] block m-auto border-b mt-5"
+          type="string"
+          value={email}
+          onChange={(e) => {
+            setEmail(e.target.value);
+          }}
+          placeholder="Email Address"
+        />
+        <input
+          className="w-[80%] block m-auto border-b my-5"
+          type="string"
+          value={password}
+          onChange={(e) => {
+            setPassword(e.target.value);
+          }}
+          placeholder="Password"
+        />
+
+        <button className="mt-2 block bg-primary1 text-white font-bold text-xl px-1 w-[80%] m-auto py-2 border border-blue-200  rounded-lg">
+          <h1>Log In</h1>
+        </button>
+      </form>
     </div>
   );
 };

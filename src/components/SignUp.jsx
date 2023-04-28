@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import GuyWithBook from "../assets/images/guywithbook.svg";
 
 const WelcomeText = () => {
@@ -40,13 +40,30 @@ const SignUpForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const sendData = async (data) => {
+    const requestOptions = {
+      method: "POST",
+      mode: "no-cors",
+      "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
+      body: new URLSearchParams({
+        email: data.email,
+        password: data.password,
+      }),
+    };
+    const response = await fetch(
+      "http://localhost:3009/api/v1/signup",
+      requestOptions
+    );
+  };
+
   const submitForm = (e) => {
     e.preventDefault();
     const data = { email: email, password: password };
     setEmail("");
     setPassword("");
-    console.log(data);
+    sendData(data);
   };
+
   return (
     <div className="flex flex-col w-full ">
       <form className=" w-full" action="" onSubmit={submitForm} method="post ">
@@ -57,7 +74,7 @@ const SignUpForm = () => {
         /> */}
         <input
           className="w-[80%] block m-auto border-b mt-5"
-          type="email"
+          type="string"
           value={email}
           onChange={(e) => {
             setEmail(e.target.value);
@@ -66,7 +83,7 @@ const SignUpForm = () => {
         />
         <input
           className="w-[80%] block m-auto border-b my-5"
-          type="password"
+          type="string"
           value={password}
           onChange={(e) => {
             setPassword(e.target.value);
