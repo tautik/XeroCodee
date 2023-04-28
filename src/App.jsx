@@ -1,9 +1,22 @@
 import "./App.css";
+import Homepage from "./components/Homepage";
+import Navbar from "./components/Navbar";
+import background from "./assets/images/background.svg";
 
 function App() {
   return (
     <>
-      <h1 className="text-3xl font-bold underline">Hello world!</h1>
+      <div className="relative ">
+        <img
+          className="absolute top-0 right-0  w-[75%] -z-10 mt-[-1.25rem] "
+          src={background}
+          alt=""
+        />
+        <div>
+          <Navbar />
+          <Homepage />
+        </div>
+      </div>
     </>
   );
 }
