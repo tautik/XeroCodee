@@ -5,6 +5,7 @@ import background from "./assets/images/background.svg";
 import Error from "./components/Error";
 import { Outlet, RouterProvider, createBrowserRouter } from "react-router-dom";
 import { Login } from "./components/Login";
+import SignUp from "./components/SignUp";
 
 const App = () => {
   return (
@@ -37,8 +38,12 @@ const routes = createBrowserRouter([
         element: <Homepage />,
       },
       {
-        path: "/login",
+        path: "/signin",
         element: <Login />,
+      },
+      {
+        path: "/signup",
+        element: <SignUp />,
       },
     ],
   },
