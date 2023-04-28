@@ -1,3 +1,4 @@
+import { useState } from "react";
 import GuyWithBook from "../assets/images/guywithbook.svg";
 
 const WelcomeText = () => {
@@ -36,26 +37,47 @@ const OrDivider = () => {
 };
 
 const SignUpForm = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const submitForm = (e) => {
+    e.preventDefault();
+    const data = { email: email, password: password };
+    setEmail("");
+    setPassword("");
+    console.log(data);
+  };
   return (
-    <div className="flex flex-col w-full">
-      <input
-        className="w-[80%] m-auto border-b"
-        type="text"
-        placeholder="Name"
-      />
-      <input
-        className="w-[80%] m-auto border-b mt-5"
-        type="email"
-        placeholder="Email Address"
-      />
-      <input
-        className="w-[80%] m-auto border-b my-5"
-        type="password"
-        placeholder="Password"
-      />
-      <button className="mt-2 bg-primary1 text-white font-bold text-xl px-1 w-[80%] m-auto py-2 border border-blue-200  rounded-lg">
-        <h1>Create Account</h1>
-      </button>
+    <div className="flex flex-col w-full ">
+      <form className=" w-full" action="" onSubmit={submitForm} method="post ">
+        {/* <input
+          className="w-[80%] block m-auto border-b"
+          type="text"
+          placeholder="Name"
+        /> */}
+        <input
+          className="w-[80%] block m-auto border-b mt-5"
+          type="email"
+          value={email}
+          onChange={(e) => {
+            setEmail(e.target.value);
+          }}
+          placeholder="Email Address"
+        />
+        <input
+          className="w-[80%] block m-auto border-b my-5"
+          type="password"
+          value={password}
+          onChange={(e) => {
+            setPassword(e.target.value);
+          }}
+          placeholder="Password"
+        />
+
+        <button className="mt-2 block bg-primary1 text-white font-bold text-xl px-1 w-[80%] m-auto py-2 border border-blue-200  rounded-lg">
+          <h1>Create Account</h1>
+        </button>
+      </form>
     </div>
   );
 };
