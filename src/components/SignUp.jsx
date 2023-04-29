@@ -43,7 +43,6 @@ const SignUpForm = () => {
   const sendData = async (data) => {
     const requestOptions = {
       method: "POST",
-      mode: "no-cors",
       "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
       body: new URLSearchParams({
         email: data.email,
@@ -54,6 +53,8 @@ const SignUpForm = () => {
       "http://localhost:3009/api/v1/signup",
       requestOptions
     );
+    const json = await response.json();
+    console.log(json);
   };
 
   const submitForm = (e) => {

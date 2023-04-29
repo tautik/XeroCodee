@@ -21,7 +21,7 @@ const LeftContainer = () => {
 
 const SocialButtons = () => {
   return (
-    <div className="flex justify-betweenw-[70%] mt-[-3rem]">
+    <div className="flex justify-betweenw-[70%] mt-[-3rem] flex-wrap">
       <button className="px-1 w-56 py-2 border border-blue-200  rounded-lg">
         Sign in with Google
       </button>
@@ -53,7 +53,9 @@ const LoginForm = () => {
       "http://localhost:3009/api/v1/signin",
       requestOptions
     );
-    return response;
+    console.log("asd", response);
+    const json = await response.json();
+    console.log(json);
   };
 
   const submitForm = async (e) => {
@@ -61,8 +63,11 @@ const LoginForm = () => {
     const data = { email: email, password: password };
     setEmail("");
     setPassword("");
-    const response = await sendData(data);
-    console.log(response);
+
+    sendData(data);
+    // if (response.status) {
+
+    // }
   };
 
   return (
