@@ -6,9 +6,34 @@ import Error from "./components/Error";
 import { Outlet, RouterProvider, createBrowserRouter } from "react-router-dom";
 import { Login } from "./components/Login";
 import SignUp from "./components/SignUp";
-import { Provider } from "react-redux";
+import { Provider, useDispatch } from "react-redux";
 import store from "./utils/store";
+import Cookies from "js-cookie";
+
 const App = () => {
+  const cookie = Cookies.get("Value");
+  console.log(cookie);
+  // const sendData = async (data) => {
+  //   const requestOptions = {
+  //     method: "GET",
+  //     "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
+  //     credentials: "include", //to accepts cookies in your frontend
+  //     headers: new URLSearchParams({
+
+  //     }),
+  //   };
+  //   const response = await fetch(
+  //     "http://localhost:3009/api/v1/signin",
+  //     requestOptions
+  //   );
+  //   const json = await response.json();
+  //   console.log(json);
+  //   dispatch(toogleLogin(json.success));
+  // };
+
+  // const submitForm = async (e) => {
+  //   sendData(data);
+  // };
   return (
     <Provider store={store}>
       <RouterProvider router={routes} />

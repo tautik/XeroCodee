@@ -1,6 +1,24 @@
 import { Link } from "react-router-dom";
-
+import { useSelector } from "react-redux";
+import { useEffect } from "react";
+import Cookies from "js-cookie";
 const Navbar = () => {
+  const status = useSelector((state) => state.loginStatus.status);
+
+  const validate = async () => {
+    const res = await fetch("http://localhost:3009/api/v1/validate", {
+      method: "GET",
+      credentials: "include",
+    });
+
+    const data = await res.json();
+    console.log(data);
+  };
+  useEffect(() => {
+    setTimeout(() => {
+      validate();
+    }, 2000);
+  }, [status]);
   return (
     <div className=" mt-5 grid col-span-12 items-center h-16  rounded-3xl w-[80%] m-auto">
       <div className="col-start-2 col-end-4">
@@ -18,7 +36,11 @@ const Navbar = () => {
       </div>
       <div className="col-start-8 col-span-1">
         <button className="bg-white px-10 py-4 border rounded-full">
-          <Link to="/signin">Sign In</Link>
+          {status ? (
+            <Link to="/signin">hello</Link>
+          ) : (
+            <Link to="/signin">Sign In</Link>
+          )}
         </button>
       </div>
     </div>

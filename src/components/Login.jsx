@@ -1,6 +1,7 @@
 import GuyWithBook from "../assets/images/guywithbook.svg";
 import { useEffect, useState } from "react";
-
+import { useDispatch } from "react-redux";
+import { toogleLogin } from "../utils/loginSlice";
 const WelcomeText = () => {
   return (
     <h1 className="text-4xl text-white">
@@ -39,7 +40,7 @@ const OrDivider = () => {
 const LoginForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
+  const dispatch = useDispatch();
   const sendData = async (data) => {
     const requestOptions = {
       method: "POST",
@@ -56,6 +57,7 @@ const LoginForm = () => {
     );
     const json = await response.json();
     console.log(json);
+    dispatch(toogleLogin(json.success));
   };
 
   const submitForm = async (e) => {

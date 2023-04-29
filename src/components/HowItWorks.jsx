@@ -91,7 +91,6 @@ const DyanmicContainer = () => {
   const buttonClickedStatus = useSelector(
     (store) => store.toogleWork.buttonClicked
   );
-  console.log(buttonClickedStatus);
   return (
     <div className="flex flex-wrap flex-row  ">
       <SectionWithButtons />

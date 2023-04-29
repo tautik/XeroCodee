@@ -44,6 +44,7 @@ const SignUpForm = () => {
     const requestOptions = {
       method: "POST",
       "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
+      credentials: "include",
       body: new URLSearchParams({
         email: data.email,
         password: data.password,
