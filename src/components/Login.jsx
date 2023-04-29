@@ -44,6 +44,7 @@ const LoginForm = () => {
     const requestOptions = {
       method: "POST",
       "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
+      credentials: "include", //to accepts cookies in your frontend
       body: new URLSearchParams({
         email: data.email,
         password: data.password,
@@ -53,7 +54,6 @@ const LoginForm = () => {
       "http://localhost:3009/api/v1/signin",
       requestOptions
     );
-    console.log("asd", response);
     const json = await response.json();
     console.log(json);
   };
@@ -63,11 +63,7 @@ const LoginForm = () => {
     const data = { email: email, password: password };
     setEmail("");
     setPassword("");
-
     sendData(data);
-    // if (response.status) {
-
-    // }
   };
 
   return (
