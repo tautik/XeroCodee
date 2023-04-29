@@ -6,12 +6,13 @@ import Error from "./components/Error";
 import { Outlet, RouterProvider, createBrowserRouter } from "react-router-dom";
 import { Login } from "./components/Login";
 import SignUp from "./components/SignUp";
-
+import { Provider } from "react-redux";
+import store from "./utils/store";
 const App = () => {
   return (
-    <>
+    <Provider store={store}>
       <RouterProvider router={routes} />
-    </>
+    </Provider>
   );
 };
 
