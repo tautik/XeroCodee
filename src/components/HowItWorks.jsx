@@ -1,15 +1,39 @@
+import { useState } from "react";
 import HowItWorkImg from "../assets/images/howItWorkImg.svg";
 import { blackButton } from "./button";
+
 const SectionWithButtons = () => {
+  const [buttonClicked, setButtonClicked] = useState("BUILD");
+  const styleClicked = "text-white bg-primary1";
+  const notClick = "text-black bg-secondary1";
+
+  const updateButton = (value) => {
+    setButtonClicked(value);
+  };
   return (
-    <div className="flex flex-row  mt-[-4rem] justify-between w-[80%] m-auto">
-      <button className="text-white bg-primary1 px-20 py-4 border rounded-xl">
+    <div className="flex flex-row  mt-[-4rem] justify-between w-[60%] m-auto font-bold text-sm">
+      <button
+        className={` ${
+          buttonClicked === "BUILD" ? styleClicked : notClick
+        } px-20 py-4 border rounded-xl `}
+        onClick={() => updateButton("BUILD")}
+      >
         01. BUILD
       </button>
-      <button className="text-white bg-primary1 px-20 py-4 border rounded-xl">
+      <button
+        className={` ${
+          buttonClicked === "STANDARDIZE" ? styleClicked : notClick
+        } px-20 py-4 border rounded-xl `}
+        onClick={() => updateButton("STANDARDIZE")}
+      >
         02. STANDARDIZE
       </button>
-      <button className="text-white bg-primary1 px-20 py-4 border rounded-xl">
+      <button
+        className={` ${
+          buttonClicked === "INNOVATE" ? styleClicked : notClick
+        } px-20 py-4 border rounded-xl `}
+        onClick={() => updateButton("INNOVATE")}
+      >
         03. INNOVATE
       </button>
     </div>
@@ -47,10 +71,13 @@ const DyanmicContainer = () => {
 };
 const HowItWorks = () => {
   return (
-    <div className="min-h-[100vh]  bg-gray-100 flex flex-col justify-evenly items-center">
+    <div className="min-h-[100vh]  flex flex-col justify-evenly items-center">
       <div>
-        <button className="text-white bg-primary1 px-10 py-4 border rounded-full ml-4">
-          Features
+        <button
+          disabled
+          className=" text-white bg-primary1 px-10 py-4 border rounded-full ml-4"
+        >
+          How It Works
         </button>
       </div>
       <h1 className="text-center mt-[-4rem] text-4xl">
