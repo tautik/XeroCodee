@@ -1,5 +1,6 @@
 import { useState } from "react";
 import HowItWorkImg from "../assets/images/howItWorkImg.svg";
+import howItWorkProfile from "../assets/images/howItWorkProfile.svg";
 import { blackButton } from "./button";
 import { useDispatch, useSelector } from "react-redux";
 import { toogleOption } from "../utils/workSlice";
@@ -16,7 +17,7 @@ const SectionWithButtons = () => {
     setButtonClicked(value);
   };
   return (
-    <div className="flex flex-row  mt-[-4rem] justify-between w-[60%] m-auto font-bold text-sm">
+    <div className="flex flex-row flex-wrap mt-[-4rem] justify-between w-[60%] m-auto font-bold text-sm">
       <button
         className={` ${
           buttonClicked === "BUILD" ? styleClicked : notClick
@@ -50,7 +51,11 @@ const Working = ({ title, description, buttonText }) => {
   return (
     <div className="flex  w-[70%] m-auto mt-10 ">
       <div className=" flex-1 flex flex-col justify-evenly">
-        <h1 className="text-4xl">{title}</h1>
+        <div className="flex flex-row">
+          <img className="w-[5rem] mr-5" src={howItWorkProfile} alt="" />
+          <h1 className="text-4xl">{title}</h1>
+        </div>
+
         <p>{description}</p>
         <div className="max-w-fit">{blackButton(buttonText)}</div>
       </div>
@@ -88,7 +93,7 @@ const DyanmicContainer = () => {
   );
   console.log(buttonClickedStatus);
   return (
-    <div className="flex flex-wrap">
+    <div className="flex flex-wrap flex-row  ">
       <SectionWithButtons />
       <Working
         title={data[buttonClickedStatus].title}
