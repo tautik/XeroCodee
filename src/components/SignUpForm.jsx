@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { baseUrl } from "../config/serverConfig";
 
 const SignUpForm = () => {
   const [email, setEmail] = useState("");
@@ -17,10 +18,8 @@ const SignUpForm = () => {
         password: data.password,
       }),
     };
-    const response = await fetch(
-      "http://localhost:3009/api/v1/signup",
-      requestOptions
-    );
+    const response = await fetch(`${baseUrl}/v1/signup`, requestOptions);
+
     const json = await response.json();
     if (json.success === false) {
       alert("Unable to create user, Please enter new email and password");

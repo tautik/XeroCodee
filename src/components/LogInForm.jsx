@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { toogleLogin } from "../utils/loginSlice";
 import { Link } from "react-router-dom";
-
+import { baseUrl } from "../config/serverConfig";
 const LogInForm = () => {
   const status = useSelector((state) => state.loginStatus.loginStatus);
   const [email, setEmail] = useState("");
@@ -18,10 +18,7 @@ const LogInForm = () => {
         password: data.password,
       }),
     };
-    const response = await fetch(
-      "http://localhost:3009/api/v1/signin",
-      requestOptions
-    );
+    const response = await fetch(`${baseUrl}/v1/signin`, requestOptions);
     const json = await response.json();
     console.log(json);
     dispatch(toogleLogin(json.success));

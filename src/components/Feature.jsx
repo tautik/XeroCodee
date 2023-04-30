@@ -1,7 +1,5 @@
 import { useState } from "react";
-import featureImg1 from "../assets/images/featureImg.svg";
-import featureImg2 from "../assets/images/featureImg2.svg";
-import featureImg3 from "../assets/images/featureImg3.svg";
+import { featureList } from "../utils/filterData";
 
 // Card component for each feature
 const Card = ({ imageSrc, title, description }) => {
@@ -10,11 +8,9 @@ const Card = ({ imageSrc, title, description }) => {
     <div
       className="transform transition duration-300 hover:scale-125 pt-4 hover:bg-secondary1 p-6 hover:z-10 border-black w-[20rem] flex justify-evenly items-center flex-col"
       onMouseEnter={() => {
-        console.log(true);
         setHover(true);
       }}
       onMouseLeave={() => {
-        console.log(false);
         setHover(false);
       }}
     >
@@ -31,26 +27,6 @@ const Card = ({ imageSrc, title, description }) => {
 };
 
 // Feature list data
-const featureList = [
-  {
-    imageSrc: featureImg1,
-    title: "Any Developer Happier",
-    description:
-      "Context switches are used often, whether you're a DevOps engineer or a full stack developer. To 1000x the developer experience, we're here.",
-  },
-  {
-    imageSrc: featureImg2,
-    title: "Another Cool Feature",
-    description:
-      "This feature makes your life easier in so many ways. You'll wonder how you lived without it!",
-  },
-  {
-    imageSrc: featureImg3,
-    title: "Last but Not Least",
-    description:
-      "Here's our final feature. It's amazing and will blow your mind.",
-  },
-];
 
 // Feature page component
 const Feature = () => {

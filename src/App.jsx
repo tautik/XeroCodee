@@ -23,6 +23,7 @@ const routes = createBrowserRouter([
     element: (
       <>
         <div className="relative font-[Nunito]">
+          {console.log(import.meta.env.VITE_NODE_ENV)}
           <img
             className="absolute top-0 right-0  w-[75%] -z-10 mt-[-1.25rem] "
             src={background}

@@ -6,5 +6,4 @@ const validate = async () => {
     credentials: "include",
   });
 
-  const data = await res.json();
-};
+//   const data = await res.json();
