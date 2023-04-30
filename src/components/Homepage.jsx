@@ -3,6 +3,7 @@ import Blog from "./Blog";
 import Feature from "./Feature";
 import First from "./First";
 import Footer from "./Footer";
+import GetStarted from "./GetStarted";
 import Hero from "./Hero";
 import HowItWorks from "./HowItWorks";
 import Pricing from "./Pricing";
@@ -11,12 +12,13 @@ import Testimonal from "./Testimonal";
 const Homepage = () => {
   return (
     <div className="mh-[90%]">
-      <First />
+      <Hero />
       <Feature />
       <AboutUs />
       <HowItWorks />
       <Testimonal />
       <Pricing />
+      <GetStarted />
       <Blog />
       <Footer />
     </div>

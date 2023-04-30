@@ -12,3 +12,10 @@ export const blackButton = (text) => {
     </div>
   );
 };
+export const whiteButton = (text) => {
+  return (
+    <button className="ml-4 text-secondary3 bg-white px-6 py-4 border rounded-full">
+      {text}
+    </button>
+  );
+};

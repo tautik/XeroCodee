@@ -1,8 +1,11 @@
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { toogleLogin } from "../utils/loginSlice";
 import Cookies from "js-cookie";
 const Navbar = () => {
+  const dispatch = useDispatch();
   const status = useSelector((state) => state.loginStatus.status);
 
   const validate = async () => {
@@ -37,7 +40,9 @@ const Navbar = () => {
       <div className="col-start-8 col-span-1">
         <button className="bg-white px-10 py-4 border rounded-full">
           {status ? (
-            <Link to="/signin">hello</Link>
+            <Link to="/signin" onClick={() => dispatch(toogleLogin(false))}>
+              Logout
+            </Link>
           ) : (
             <Link to="/signin">Sign In</Link>
           )}
