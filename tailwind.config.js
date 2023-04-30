@@ -15,6 +15,9 @@ export default {
       },
       fontFamily: {
         Nunito: ["sans-serif"],
+        ReemKufi: "'Reem Kufi', 'sans-serif'",
+        ReemKufiFun: ["sans-serif"],
+        Roboto: "'Roboto','sans-serif'",
       },
     },
   },

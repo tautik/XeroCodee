@@ -1,43 +1,28 @@
 import { useEffect, useState } from "react";
 import GuyWithBook from "../assets/images/guywithbook.svg";
-
-const WelcomeText = () => {
-  return (
-    <h1 className="text-4xl text-white">
-      Welcome to XeroCodee <br />
-      DevOps Automation <br /> Platform.
-    </h1>
-  );
-};
+import SocialButtons from "./SocialButtons";
+import { Link } from "react-router-dom";
 
 const LeftContainer = () => {
   return (
     <div className="bg-primary1 border rounded-l-3xl flex flex-col justify-evenly items-center col-span-5">
-      <WelcomeText />
+      <h1 className="text-4xl  text-white px-6 pt-10 font-ReemKufi">
+        Welcome to XeroCodee DevOps Automation Platform.
+      </h1>
       <img className="min-w-[32rem] ml-52" src={GuyWithBook} alt="" />
     </div>
   );
 };
 
-const SocialButtons = () => {
-  return (
-    <div className="flex justify-betweenw-[70%] mt-[-3rem]">
-      <button className="px-1 w-56 py-2 border border-blue-200  rounded-lg">
-        Sign in with Google
-      </button>
-      <button className="ml-4 px-1 w-56 py-2 border border-blue-200  rounded-lg">
-        Sign in with Github
-      </button>
-    </div>
-  );
-};
-
 const OrDivider = () => {
-  return <h2 className="">-OR-</h2>;
+  return (
+    <h2 className="text-secondary4 w-fit mx-auto font-bold text-xl">- OR -</h2>
+  );
 };
 
 const SignUpForm = () => {
   const [email, setEmail] = useState("");
+  const [name, setName] = useState("");
   const [password, setPassword] = useState("");
 
   const sendData = async (data) => {
@@ -46,6 +31,7 @@ const SignUpForm = () => {
       "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
       credentials: "include",
       body: new URLSearchParams({
+        name: data.name,
         email: data.email,
         password: data.password,
       }),
@@ -55,12 +41,16 @@ const SignUpForm = () => {
       requestOptions
     );
     const json = await response.json();
-    console.log(json);
+    if (json.success === false) {
+      alert("Unable to create user, Please enter new email and password");
+    } else {
+      alert(" Account created succesfully");
+    }
   };
 
   const submitForm = (e) => {
     e.preventDefault();
-    const data = { email: email, password: password };
+    const data = { name: name, email: email, password: password };
     setEmail("");
     setPassword("");
     sendData(data);
@@ -69,13 +59,17 @@ const SignUpForm = () => {
   return (
     <div className="flex flex-col w-full ">
       <form className=" w-full" action="" onSubmit={submitForm} method="post ">
-        {/* <input
-          className="w-[80%] block m-auto border-b"
-          type="text"
-          placeholder="Name"
-        /> */}
         <input
-          className="w-[80%] block m-auto border-b mt-5"
+          className="w-[80%] p-2 block font-bold m-auto border-b mt-5"
+          type="string"
+          value={name}
+          onChange={(e) => {
+            setName(e.target.value);
+          }}
+          placeholder="Name"
+        />
+        <input
+          className="w-[80%] p-2 block font-bold m-auto border-b mt-5"
           type="string"
           value={email}
           onChange={(e) => {
@@ -84,7 +78,7 @@ const SignUpForm = () => {
           placeholder="Email Address"
         />
         <input
-          className="w-[80%] block m-auto border-b my-5"
+          className="w-[80%] p-2 block font-bold m-auto border-b my-5"
           type="string"
           value={password}
           onChange={(e) => {
@@ -93,18 +87,23 @@ const SignUpForm = () => {
           placeholder="Password"
         />
 
-        <button className="mt-2 block bg-primary1 text-white font-bold text-xl px-1 w-[80%] m-auto py-2 border border-blue-200  rounded-lg">
+        <button className="mt-2  block bg-primary1 text-white font-bold text-xl px-1 w-[80%] m-auto py-4 border border-blue-200  rounded-lg">
           <h1>Create Account</h1>
         </button>
+        <h1 className="w-[80%] block m-auto pt-2">
+          Already have an account?
+          <Link className="text-primary1" to="/signin">
+            <span> Login</span>
+          </Link>
+        </h1>
       </form>
     </div>
   );
 };
-
 const RightContainer = () => {
   return (
-    <div className="min-h-full border z-10 ml-[-1.5rem] rounded-3xl col-span-8 items-center bg-white flex flex-col justify-evenly">
-      <h1 className="ml-[-10rem] text-3xl font-bold">Create Account</h1>
+    <div className="min-h-full border z-10 ml-[-1.5rem] rounded-3xl col-span-8  bg-white flex flex-col justify-around items-start">
+      <h1 className="ml-10 text-3xl font-Roboto font-bold">Create Account</h1>
       <SocialButtons />
       <OrDivider />
       <SignUpForm />
@@ -112,9 +111,9 @@ const RightContainer = () => {
   );
 };
 
-const SignUp = () => {
+export const SignUp = () => {
   return (
-    <div className="min-h-[90vh] flex">
+    <div className="min-h-[90vh] flex font-[ro">
       <div className="w-[70%] min-h-[35rem] m-auto grid grid-flow-col grid-cols-12">
         <LeftContainer />
         <RightContainer />
