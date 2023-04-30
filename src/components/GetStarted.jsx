@@ -12,7 +12,7 @@ const GetStarted = () => {
           </h1>
           <form action="" className="flex flex-wrap">
             <input
-              className="px-4 py-3 w-[18rem] bg-[#4786DC] placeholder-white rounded-full"
+              className="px-4 mr-4 py-3 w-[18rem] bg-[#4786DC] placeholder-white rounded-full"
               placeholder="your mail here..."
               type="text"
             />
