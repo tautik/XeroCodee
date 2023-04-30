@@ -4,7 +4,7 @@ import twitter from "../assets/images/twitter.svg";
 import instagram from "../assets/images/instagram.svg";
 import facebook from "../assets/images/facebook.svg";
 import linkdin from "../assets/images/linkdin.svg";
-import { blackButton, blueButton } from "./button";
+import { blackButton, blueButton, fadeWhite } from "./button";
 import { Link } from "react-router-dom";
 const Contact = () => {
   return (
@@ -87,11 +87,9 @@ const Integration = () => {
           enable Single Pane of Glass DevOps
         </p>
       </div>
-      <div className="flex">
+      <div className="flex ">
         {blackButton("Google")}
-        <div className="text-secondary3 bg-secondary1 px-6 py-4 border rounded-full">
-          Github
-        </div>
+        <div className="ml-3">{fadeWhite("Github ")}</div>
       </div>
     </div>
   );

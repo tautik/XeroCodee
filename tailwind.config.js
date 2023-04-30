@@ -13,6 +13,9 @@ export default {
         secondary4: "#797979",
         secondary5: "#FFFFFF",
       },
+      fontFamily: {
+        Nunito: ["sans-serif"],
+      },
     },
   },
   plugins: [],
