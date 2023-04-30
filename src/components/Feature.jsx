@@ -1,17 +1,29 @@
+import { useState } from "react";
 import featureImg1 from "../assets/images/featureImg.svg";
 import featureImg2 from "../assets/images/featureImg2.svg";
 import featureImg3 from "../assets/images/featureImg3.svg";
 
 // Card component for each feature
 const Card = ({ imageSrc, title, description }) => {
+  const [hover, setHover] = useState(false);
   return (
-    <div className="transform transition duration-300 hover:scale-125 pt-4 hover:bg-secondary1 p-6 hover:z-10 border-black w-[20rem] flex justify-evenly items-center flex-col">
+    <div
+      className="transform transition duration-300 hover:scale-125 pt-4 hover:bg-secondary1 p-6 hover:z-10 border-black w-[20rem] flex justify-evenly items-center flex-col"
+      onMouseEnter={() => {
+        console.log(true);
+        setHover(true);
+      }}
+      onMouseLeave={() => {
+        console.log(false);
+        setHover(false);
+      }}
+    >
       <div>
         <img className="w-[319.984px] h-[238.539px]" src={imageSrc} alt="" />
         <h2 className="text-2xl font-bold  mb-6">{title}</h2>
       </div>
       <p className="text-secondary4">{description}</p>
-      <a className="pt-4 underline hover:text-primary1" href="">
+      <a className={`pt-4 underline ${hover ? "text-primary1" : ""}`} href="">
         Learn More
       </a>
     </div>
@@ -53,7 +65,7 @@ const Feature = () => {
         </button>
       </div>
       <div>
-        <h1 className="text-[3rem] font-extrabold">
+        <h1 className=" mt-4 text-5xl font-extrabold">
           Save 10000s of expensive <br />
           coder hours
         </h1>

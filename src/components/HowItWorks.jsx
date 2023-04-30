@@ -108,12 +108,12 @@ const HowItWorks = () => {
       <div>
         <button
           disabled
-          className=" text-white bg-primary1 px-10 py-4 border rounded-full ml-4"
+          className=" text-white font-bold bg-primary1 px-10 py-4 border rounded-full ml-4"
         >
           How It Works
         </button>
       </div>
-      <h1 className="text-center mt-[-4rem] text-4xl">
+      <h1 className="text-center font-extrabold mt-[-4rem] text-4xl">
         Work smarter <br />
         with easy deploys, manages & scales
       </h1>
