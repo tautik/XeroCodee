@@ -5,12 +5,14 @@ import blogImg2 from "../assets/images/blogImg2.svg";
 // Article component
 const Article = ({ imageSrc, date, title, description }) => {
   return (
-    <div className="py-6   hover:bg-yellow-50 border-black w-[20rem]  flex justify-center  flex-col px-4">
+    <div className="py-6    cursor-pointer border-black w-[20rem]  flex justify-center  flex-col px-4">
       <img src={imageSrc} alt="" />
-      <p>{date}</p>
-      <h2 className="text-2xl">{title}</h2>
-      <p className="py-4">{description}</p>
-      <a href="">Read More</a>
+      <p className="py-4 text-secondary4">{date}</p>
+      <h2 className="text-2xl font-extrabold">{title}</h2>
+      <p className="py-4 text-secondary4">{description}</p>
+      <a className="text-[#5236FF] underline" href="">
+        Read More
+      </a>
     </div>
   );
 };
@@ -37,16 +39,11 @@ const Blog = () => {
   return (
     <div className="min-h-[100vh] flex justify-center items-center ">
       <div className="bg-secondary1 w-[70%] h-[90vh] flex flex-col justify-evenly items-center">
-        <div>
-          <button
-            disabled
-            className="text-white  bg-primary1 px-10 py-4 border rounded-full ml-4"
-          >
-            Blog
-          </button>
+        <div className="text-white font-bold bg-primary1 px-10 py-4 border rounded-full ml-4">
+          Blog
         </div>
         <div>
-          <h1 className="text-3xl">Most popular articles</h1>
+          <h1 className="text-4xl font-extrabold">Most popular articles</h1>
         </div>
         <div className=" flex flex-wrap w-full justify-evenly">
           {articles.map((article) => (

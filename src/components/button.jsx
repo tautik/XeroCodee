@@ -1,15 +1,15 @@
 export const blueButton = (text) => {
   return (
-    <div className="font-bold text-white text-center bg-primary1 px-6 py-4 border rounded-full">
+    <button className="font-bold text-white text-center bg-primary1 px-6 py-4 border rounded-full">
       {text}
-    </div>
+    </button>
   );
 };
 export const blackButton = (text) => {
   return (
-    <div className="font-bold text-white bg-secondary3 px-6 py-4 border rounded-full">
+    <button className="font-bold text-white bg-secondary3 px-6 py-4 border rounded-full">
       {text}
-    </div>
+    </button>
   );
 };
 export const whiteButton = (text) => {
