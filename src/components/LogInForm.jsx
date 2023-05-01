@@ -50,7 +50,7 @@ const LogInForm = () => {
         />
         <input
           className="w-[80%] p-2 block font-bold m-auto border-b my-5"
-          type="string"
+          type="password"
           value={password}
           onChange={(e) => {
             setPassword(e.target.value);

@@ -33,6 +33,7 @@ const SignUpForm = () => {
     const data = { name: name, email: email, password: password };
     setEmail("");
     setPassword("");
+    setName("");
     sendData(data);
   };
 
@@ -59,7 +60,7 @@ const SignUpForm = () => {
         />
         <input
           className="w-[80%] p-2 block font-bold m-auto border-b my-5"
-          type="string"
+          type="password"
           value={password}
           onChange={(e) => {
             setPassword(e.target.value);
