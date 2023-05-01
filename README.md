@@ -5,6 +5,7 @@ XeroCodee is a responsive and dynamic website built using React JS. It utilizes 
 ## Getting Started
 
 To get started using XeroCodee, simply visit our website at https://xerocodeee.netlify.app/.
+Note: For backend refer to  https://github.com/tautik/AuthServiceMongoDB
 
 ## Demo
 
@@ -46,4 +47,4 @@ XeroCodee takes security seriously and has implemented measures to protect user 
 
 ## For Backend refer:
 
-Check out the XeroCodee demo video at https://github.com/tautik/AuthServiceMongoDB
+Check out the Backend at https://github.com/tautik/AuthServiceMongoDB
