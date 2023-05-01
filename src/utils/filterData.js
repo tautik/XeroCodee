@@ -22,3 +22,24 @@ export const featureList = [
       "Here's our final feature. It's amazing and will blow your mind.",
   },
 ];
+
+export const howItWorksData = {
+  BUILD: {
+    title: "Build Infrastructure Automation",
+    description:
+      "Infrastructure automation process is used by IT operations and development teams to compose, collaborate, reuse, and provision infrastructure as code.",
+    buttonText: "Get Started",
+  },
+  STANDARDIZE: {
+    title: "Standardize Infrastructure Automation ",
+    description:
+      "Using access controls, policy enforcement, and audit, the infrastructure automation workflow offers possibilities for cost, compliance, and security management.",
+    buttonText: "Get Started",
+  },
+  INNOVATE: {
+    title: "Innovate Infrastructure Automation  ",
+    description:
+      "With self-service infrastructure as code and integration with VCS, ITSM, and CI/CD, infrastructure automation process is extended to all teams inside the organisation.",
+    buttonText: "Get Started",
+  },
+};

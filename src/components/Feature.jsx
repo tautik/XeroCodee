@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { featureList } from "../utils/filterData";
-
 // Card component for each feature
 const Card = ({ imageSrc, title, description }) => {
   const [hover, setHover] = useState(false);
@@ -25,8 +24,6 @@ const Card = ({ imageSrc, title, description }) => {
     </div>
   );
 };
-
-// Feature list data
 
 // Feature page component
 const Feature = () => {
